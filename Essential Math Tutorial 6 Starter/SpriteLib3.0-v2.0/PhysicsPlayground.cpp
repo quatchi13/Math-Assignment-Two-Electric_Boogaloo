@@ -15,7 +15,7 @@ PhysicsPlayground::PhysicsPlayground(std::string name)
 
 void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 {
-	PlaySound(TEXT("music.wav"), NULL, SND_ASYNC);
+	//PlaySound(TEXT("music.wav"), NULL, SND_ASYNC);
 
 	//Dynamically allocates the register
 	m_sceneReg = new entt::registry;
@@ -39,7 +39,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<HorizontalScroll>(entity);
 		ECS::AttachComponent<VerticalScroll>(entity);
 
-		vec4 temp = vec4(-75.f, 75.f, -75.f, 75.f);
+		//vec4 temp = vec4(-80.f, 80.f, -80.f, 80.f);
+		vec4 temp = vec4(-300.f, 300.f, -300.f, 300.f);
 		ECS::GetComponent<Camera>(entity).SetOrthoSize(temp);
 		ECS::GetComponent<Camera>(entity).SetWindowSize(vec2(float(windowWidth), float(windowHeight)));
 		ECS::GetComponent<Camera>(entity).Orthographic(aspectRatio, temp.x, temp.y, temp.z, temp.w, -100.f, 100.f);
@@ -63,8 +64,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<CanJump>(entity);
 
 		//Sets up the components
-		std::string fileName = "LinkStandby.png";
-		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 40, 30);
+		std::string fileName = "Hamster place holder.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
 		ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(0.f, 30.f, 2.f));
 
@@ -81,8 +82,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		//tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
-		tempPhsBody = PhysicsBody(entity, tempBody, float((tempSpr.GetHeight() - shrinkY)/2.f), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
+		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
+		//tempPhsBody = PhysicsBody(entity, tempBody, float((tempSpr.GetHeight() - shrinkY)/2.f), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
 		//std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
 		//tempPhsBody = PhysicsBody(entity, BodyType::TRIANGLE, tempBody, points, vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.5);
 		tempPhsBody.SetRotationAngleDeg(0.f);
@@ -91,13 +92,34 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempPhsBody.SetGravityScale(1.f);
 	}
 
-	makeImage("HelloWorld.png", 100, 80, 0.5, 0, 0, 0);
+	makeImage("Boogaloo.png", 1100, 590, 0.2, 0, 0, -5);
 
 	//Setup static Top Platform
-	makeStaticObject("boxSprite.jpg", 150, 10, 30, -20, 2, 30, -10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);
-	makeStaticObject("boxSprite.jpg", 80, 10, 30, -20, 2, 137.1, -29.3, 0, 0, GROUND, 0, 1, 0, 0.3, -30);
-	makeStaticObject("boxSprite.jpg", 150, 10, 30, -20, 2, 240, -50, 0, 0, GROUND, 0, 1, 0, 0.3, 0);
-	makeStaticObject("boxSprite.jpg", 50, 15, 30, -20, 2, 325, -30, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);
+
+	//makeStaticObject(std::string filename, int width, int height, int x, int y, int z, int physx, int physy, float shrinkX, float shrinkY, EntityCategories type, float r, float g, float b, float opacity, int rotate);
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, -15, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//start platfoom
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -40, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//left cubby wall
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, 50, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//top cubby roof
+	//makeStaticObject("wood.png", 60, 10, 30, -10, 2, 70, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right door (trigger needs to be attached)
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 125, 14, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//ramp to the right 
+	makeStaticObject("wood.png", 65, 11, 30, -10, 2, 207, 43, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//triangle cubby roof
+	makeStaticObject("wood.png", 70, 10, 30, -10, 2, 180, 10, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//left bubby wall
+	makeStaticObject("wood.png", 73, 10, 30, -10, 2, 240, 12, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right cubby wall
+	makeStaticObject("wood.png", 70, 10, 30, -10, 2, 210, -20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//cubby door (triggers) trinagle 
+	makeStaticObject("wood.png", 440, 10, 30, -10, 2, 160, -60, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//beeg lower platfoom 
+	makeStaticObject("wood.png", 98, 10, 30, -10, 2, 340, 30, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
+	//makeStaticObject("wood.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c)
+	makeStaticObject("wood.png", 30, 10, 30, -10, 2, 330, 10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//side jump platform 
+	makeStaticObject("wood.png", 190, 10, 30, -10, 2, 455, -5, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//ramp after c door 
+	makeStaticObject("wood.png", 40, 11, 30, -10, 2, 550, 48, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platfoom hold (p) button
+	makeStaticObject("wood.png", 35, 10, 30, -10, 2, 420, 35, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp jump thing flat 
+	makeStaticObject("wood.png", 160, 10, 30, -10, 2, 340, 80, 0, 0, GROUND, 0, 1, 0, 0.3, -35);//ramp the one angled yes that one
+	makeStaticObject("wood.png", 261, 10, 30, -10, 2, 147, 125, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platform on top 
+	makeStaticObject("wood.png", 202, 10, 30, -10, 2, -65, 175, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//the other ramp to the left ish on top
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -200, 225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat top left between ramps
+	makeStaticObject("wood.png", 105, 10, 30, -10, 2, -295, 243, 0, 0, GROUND, 0, 1, 0, 0.3, -20);//the mini ramp
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -392, 261, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat top left 
+	makeStaticObject("wood.png", 112, 10, 30, -10, 2, -438, 210, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall on the left 
 	
 
 
@@ -140,7 +162,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	//Setup trigger
 	{
 		//Creates entity
-		auto entity = ECS::CreateEntity();
+		/*auto entity = ECS::CreateEntity();
 
 		//Add components
 		ECS::AttachComponent<Sprite>(entity);
@@ -169,7 +191,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), true, TRIGGER, PLAYER | OBJECTS);
-		tempPhsBody.SetColor(vec4(1.f, 0.f, 0.f, 0.3f));
+		tempPhsBody.SetColor(vec4(1.f, 0.f, 0.f, 0.3f));*/
 	}
 
 	ECS::GetComponent<HorizontalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
@@ -234,7 +256,7 @@ void PhysicsPlayground::KeyboardDown()
 	{
 		if (Input::GetKeyDown(Key::Space))
 		{
-			player.GetBody()->ApplyLinearImpulseToCenter(b2Vec2(0.f, 160000.f), true);
+			player.GetBody()->ApplyLinearImpulseToCenter(b2Vec2(0.f, 16000000.f), true);
 			canJump.m_canJump = false;
 		}
 	}
