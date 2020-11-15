@@ -183,9 +183,6 @@
     <ClInclude Include="DestroyTrigger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CanJump.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\imgui\imgui.cpp">
@@ -345,9 +342,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DestroyTrigger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CanJump.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

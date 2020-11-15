@@ -74,6 +74,9 @@ public:
 	void MovementUpdate();
 	void AnimationUpdate();
 
+	//can it jump?
+	bool m_canJump = true;
+
 private:
 	void SetActiveAnimation(int anim);
 
@@ -83,6 +86,8 @@ private:
 	bool m_attacking = false;
 	//Have we locked the player from moving during this animation?
 	bool m_locked = false;
+
+	
 
 	//A reference to our sprite
 	Sprite* m_sprite = nullptr;
@@ -96,6 +101,8 @@ private:
 	PhysicsBody* m_physBody = nullptr;
 	//Does this player have physics?
 	bool m_hasPhysics = false;
+
+	
 
 	//Default animation direction (feel free to change this to suit your game. If you're making a side-scroller, left or right would be better
 	AnimDir m_facing = LEFT;

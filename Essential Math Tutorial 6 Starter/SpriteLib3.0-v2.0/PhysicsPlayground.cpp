@@ -39,8 +39,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<HorizontalScroll>(entity);
 		ECS::AttachComponent<VerticalScroll>(entity);
 
-		//vec4 temp = vec4(-80.f, 80.f, -80.f, 80.f);
-		vec4 temp = vec4(-300.f, 300.f, -300.f, 300.f);
+		vec4 temp = vec4(-80.f, 80.f, -80.f, 80.f);
+		//vec4 temp = vec4(-300.f, 300.f, -300.f, 300.f);
 		ECS::GetComponent<Camera>(entity).SetOrthoSize(temp);
 		ECS::GetComponent<Camera>(entity).SetWindowSize(vec2(float(windowWidth), float(windowHeight)));
 		ECS::GetComponent<Camera>(entity).Orthographic(aspectRatio, temp.x, temp.y, temp.z, temp.w, -100.f, 100.f);
@@ -61,7 +61,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<Sprite>(entity);
 		ECS::AttachComponent<Transform>(entity);
 		ECS::AttachComponent<PhysicsBody>(entity);
-		ECS::AttachComponent<CanJump>(entity);
+		ECS::AttachComponent<Player>(entity);
+		
 
 		//Sets up the components
 		std::string fileName = "Hamster place holder.png";
@@ -100,7 +101,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, -15, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//start platfoom
 	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -40, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//left cubby wall
 	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, 50, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//top cubby roof
-	//makeStaticObject("wood.png", 60, 10, 30, -10, 2, 70, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right door (trigger needs to be attached)
+	//makeStaticObject("wood.png", 60, 10, 30, -10, 2, 70, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right door (trigger needs to be attached) 7th created 
 	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 125, 14, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//ramp to the right 
 	makeStaticObject("wood.png", 65, 11, 30, -10, 2, 207, 43, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//triangle cubby roof
 	makeStaticObject("wood.png", 70, 10, 30, -10, 2, 180, 10, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//left bubby wall
@@ -108,7 +109,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 70, 10, 30, -10, 2, 210, -20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//cubby door (triggers) trinagle 
 	makeStaticObject("wood.png", 440, 10, 30, -10, 2, 160, -60, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//beeg lower platfoom 
 	makeStaticObject("wood.png", 98, 10, 30, -10, 2, 340, 30, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
-	//makeStaticObject("wood.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c)
+	//makeStaticObject("wood.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c) 15th created
 	makeStaticObject("wood.png", 30, 10, 30, -10, 2, 330, 10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//side jump platform 
 	makeStaticObject("wood.png", 190, 10, 30, -10, 2, 455, -5, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//ramp after c door 
 	makeStaticObject("wood.png", 40, 11, 30, -10, 2, 550, 48, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platfoom hold (p) button
@@ -129,6 +130,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	{
 		auto entity = ECS::CreateEntity();
 		ball = entity;
+		ECS::SetIsMainBall(entity, true);
 		//Add components
 		ECS::AttachComponent<Sprite>(entity);
 		ECS::AttachComponent<Transform>(entity);
@@ -209,6 +211,8 @@ void PhysicsPlayground::Update()
 void PhysicsPlayground::KeyboardHold()
 {
 	auto& player = ECS::GetComponent<PhysicsBody>(MainEntities::MainPlayer());
+	auto& ball = ECS::GetComponent<PhysicsBody>(MainEntities::MainBall());
+
 
 	float speed = 1.f;
 	b2Vec2 vel = b2Vec2(0.f, 0.f);
@@ -236,12 +240,21 @@ void PhysicsPlayground::KeyboardHold()
 	{
 		player.ScaleBody(-1.3 * Timer::deltaTime, 0);
 	}
+
+	if (Input::GetKey(Key::NumPad0))
+	{
+		ball.ScaleBody(1.3 * Timer::deltaTime, 0);
+	}
+	else if (Input::GetKey(Key::NumPad9))
+	{
+		ball.ScaleBody(-1.3 * Timer::deltaTime, 0);
+	}
 }
 
 void PhysicsPlayground::KeyboardDown()
 {
 	auto& player = ECS::GetComponent<PhysicsBody>(MainEntities::MainPlayer());
-	auto& canJump = ECS::GetComponent<CanJump>(MainEntities::MainPlayer());
+	auto& canJump = ECS::GetComponent<Player>(MainEntities::MainPlayer());
 
 	if (Input::GetKeyDown(Key::Q))
 	{
@@ -252,6 +265,7 @@ void PhysicsPlayground::KeyboardDown()
 	{
 		PhysicsBody::SetDraw(!PhysicsBody::GetDraw());
 	}
+	
 	if (canJump.m_canJump)
 	{
 		if (Input::GetKeyDown(Key::Space))
@@ -260,6 +274,7 @@ void PhysicsPlayground::KeyboardDown()
 			canJump.m_canJump = false;
 		}
 	}
+	
 }
 
 void PhysicsPlayground::KeyboardUp()

@@ -12,7 +12,7 @@
 #include "MainEntities.h"
 #include "DestroyTrigger.h"
 #include "HorizontalScroll.h"
-#include "CanJump.h"
+
 
 
 class ECS abstract
@@ -51,6 +51,7 @@ public:
 	//Side stuff for entity identifier
 	static void SetIsMainCamera(unsigned entity, bool mainCamera);
 	static void SetIsMainPlayer(unsigned entity, bool mainPlayer);
+	static void SetIsMainBall(unsigned entity, bool mainBall);
 
 private:
 	static entt::registry* m_reg;
