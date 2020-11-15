@@ -39,8 +39,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<HorizontalScroll>(entity);
 		ECS::AttachComponent<VerticalScroll>(entity);
 
-		vec4 temp = vec4(-80.f, 80.f, -80.f, 80.f);
-		//vec4 temp = vec4(-300.f, 300.f, -300.f, 300.f);
+		//vec4 temp = vec4(-80.f, 80.f, -80.f, 80.f);
+		vec4 temp = vec4(-300.f, 300.f, -300.f, 300.f);
 		ECS::GetComponent<Camera>(entity).SetOrthoSize(temp);
 		ECS::GetComponent<Camera>(entity).SetWindowSize(vec2(float(windowWidth), float(windowHeight)));
 		ECS::GetComponent<Camera>(entity).Orthographic(aspectRatio, temp.x, temp.y, temp.z, temp.w, -100.f, 100.f);
@@ -100,7 +100,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	//makeStaticObject(std::string filename, int width, int height, int x, int y, int z, int physx, int physy, float shrinkX, float shrinkY, EntityCategories type, float r, float g, float b, float opacity, int rotate);
 	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, -15, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//start platfoom
 	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -40, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//left cubby wall
-	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, 50, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//top cubby roof
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 15, 50, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//top cubby roof (trigger for cercle)
 	//makeStaticObject("wood.png", 60, 10, 30, -10, 2, 70, 15, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right door (trigger needs to be attached) 7th created 
 	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 125, 14, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//ramp to the right 
 	makeStaticObject("wood.png", 65, 11, 30, -10, 2, 207, 43, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//triangle cubby roof
@@ -121,7 +121,17 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 105, 10, 30, -10, 2, -295, 243, 0, 0, GROUND, 0, 1, 0, 0.3, -20);//the mini ramp
 	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -392, 261, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat top left 
 	makeStaticObject("wood.png", 112, 10, 30, -10, 2, -438, 210, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall on the left 
-	
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -540, 220, 0, 0, GROUND, 0, 1, 0, 0.3, -35);//coin showwt thing i cant spell left one
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -480, 150, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//right slide thing
+	makeStaticObject("wood.png", 35, 10, 30, -10, 2, -20, 210, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//moving back up right ramp jump thing tiny flat
+	//makeStaticObject("wood.png", 95, 10, 30, -10, 2, -80, 210, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//(P) door trigger
+	makeStaticObject("wood.png", 173, 10, 30, -10, 2, 80, 225, 0, 0, GROUND, 0, 1, 0, 0.3, 10);//ramp after it
+	makeStaticObject("wood.png", 435, 10, 30, -10, 2, 380, 240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//long platfoom on top right
+	makeStaticObject("wood.png", 80, 10, 30, -10, 2, 460, 280, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door for hexagon (trigger)
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, 180, 215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//septagon cubby wall left
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, 230, 215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall right
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, 205, 190, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//floor septagon (trigger)
+
 
 
 
