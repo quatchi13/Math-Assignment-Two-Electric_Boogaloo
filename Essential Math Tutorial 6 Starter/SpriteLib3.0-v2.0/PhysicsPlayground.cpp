@@ -131,6 +131,46 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 50, 10, 30, -10, 2, 180, 215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//septagon cubby wall left
 	makeStaticObject("wood.png", 50, 10, 30, -10, 2, 230, 215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall right
 	makeStaticObject("wood.png", 60, 10, 30, -10, 2, 205, 190, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//floor septagon (trigger)
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -110, -30, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//ramp on teh left after lower beeg platfoom
+	makeStaticObject("wood.png", 120, 11, 30, -10, 2, -219, -1, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat and floor of too cubbys
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -274, 30, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//pentagon cubby left wall 
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -205, 30, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right wall (trigger)
+	makeStaticObject("wood.png", 70, 10, 30, -10, 2, -244, 55, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof / floor
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -274, 90, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//Square cubby left wall (trigger
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -205, 90, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//cubby right wall
+	makeStaticObject("wood.png", 70, 10, 30, -10, 2, -244, 115, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -335, 100, 0, 0, GROUND, 0, 1, 0, 0.3, 15);//ramp coming down
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, -415, 85, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat thingy
+	//makeStaticObject("wood.png", 80, 10, 30, -10, 2, -438, 120, 0, 0, GROUND, 0, 1, 0, 0.3, 90);// (s) door trigger thing
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -560, 65, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platform thing that is like a z idk im tired
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -469, 40, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//ramp thing
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, -405, 15, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat thing
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -318, 14, 0, 0, GROUND, 0, 1, 0, 0.3, 45);//ramp from the square cubby thing
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, -380, -30, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp flat thing
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -550, -30, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//Z platform 2 electrijnsdfdkjnksd
+	//makeStaticObject("wood.png", 120, 10, 30, -10, 2, -450, -30, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//heptagont 7 (TRIGGER)
+	makeStaticObject("wood.png", 121, 10, 30, -10, 2, -450, -60, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//ramp thging
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -350, -90, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//that platfoom lower platform bottom left
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, -195, -116, 0, 0, GROUND, 0, 1, 0, 0.3, -15);//other ramp thing 
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, -75, -142, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp flat thing
+	makeStaticObject("wood.png", 80, 10, 30, -10, 2, 50, -100, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(trigger) 'H' over octogon cubby
+	makeStaticObject("wood.png", 101, 10, 30, -10, 2, 80, -142, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof 
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, -20, -171, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//left ramp of the octogon cubby 
+	makeStaticObject("wood.png", 120, 10, 30, -10, 2, 180, -171, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//right ramp
+    makeStaticObject("wood.png", 60, 10, 30, -10, 2, 40, -170, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//hexagon cubby left wall 
+	makeStaticObject("wood.png", 60, 10, 30, -10, 2, 120, -170, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//cubby wall right
+	makeStaticObject("wood.png", 90, 10, 30, -10, 2, 80, -200, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flor thing (TRIGGER) tri
+	makeStaticObject("wood.png", 50, 10, 30, -10, 2, 250, -200, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//right platfoom flat pog
+	makeStaticObject("wood.png", 80, 10, 30, -10, 2, -100, -200, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat thing in the middle
+	makeStaticObject("wood.png", 156, 10, 30, -10, 2, -210, -175, 0, 0, GROUND, 0, 1, 0, 0.3, -20);//ramp on the bottom left
+	makeStaticObject("wood.png", 101, 10, 30, -10, 2, -285, -195, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right wall donky donk thing
+	makeStaticObject("wood.png", 80, 10, 30, -10, 2, -285, -250, 0, 0, GROUND, 0, 1, 0, 0.3,90);//TRIGGER (h) door at bottom 
+	makeStaticObject("wood.png", 320, 10, 30, -10, 2, -450, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//TRIGGER (p) unleash the shaps
+	makeStaticObject("wood.png", 170, 10, 30, -10, 2, 480, -70, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 445, -250, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall thing
+	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);// HAMSTER TRIGGER to win 
 
 
 
