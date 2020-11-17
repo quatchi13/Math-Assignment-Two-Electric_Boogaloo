@@ -55,3 +55,51 @@ void ECS::SetIsMainBall(unsigned entity, bool mainBall)
 		MainEntities::MainBall(entity);
 	}
 }
+
+void ECS::SetIsMainTriangle(unsigned entity, bool mainTriangle)
+{
+	if (mainTriangle)
+	{
+		MainEntities::MainTriangle(entity);
+	}
+}
+
+void ECS::SetIsMainSquare(unsigned entity, bool mainSquare)
+{
+	if (mainSquare)
+	{
+		MainEntities::MainSquare(entity);
+	}
+}
+
+void ECS::SetIsMainPentagon(unsigned entity, bool mainPentagon)
+{
+	if (mainPentagon)
+	{
+		MainEntities::MainPentagon(entity);
+	}
+}
+
+void ECS::SetIsMainHexagon(unsigned entity, bool mainHexagon)
+{
+	if (mainHexagon)
+	{
+		MainEntities::MainHexagon(entity);
+	}
+}
+
+void ECS::SetIsMainHeptagon(unsigned entity, bool mainHeptagon)
+{
+	if (mainHeptagon)
+	{
+		MainEntities::MainHeptagon(entity);
+	}
+}
+
+void ECS::SetIsMainOctagon(unsigned entity, bool mainOctagon)
+{
+	if (mainOctagon)
+	{
+		MainEntities::MainOctagon(entity);
+	}
+}

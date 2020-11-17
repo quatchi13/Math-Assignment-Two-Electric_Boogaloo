@@ -52,6 +52,12 @@ public:
 	static void SetIsMainCamera(unsigned entity, bool mainCamera);
 	static void SetIsMainPlayer(unsigned entity, bool mainPlayer);
 	static void SetIsMainBall(unsigned entity, bool mainBall);
+	static void SetIsMainTriangle(unsigned entity, bool mainBall);
+	static void SetIsMainSquare(unsigned entity, bool mainBall);
+	static void SetIsMainPentagon(unsigned entity, bool mainBall);
+	static void SetIsMainHexagon(unsigned entity, bool mainBall);
+	static void SetIsMainHeptagon(unsigned entity, bool mainBall);
+	static void SetIsMainOctagon(unsigned entity, bool mainBall);
 
 private:
 	static entt::registry* m_reg;
