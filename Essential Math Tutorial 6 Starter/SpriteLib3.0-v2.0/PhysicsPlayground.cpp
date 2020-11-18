@@ -95,6 +95,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 	makeImage("Boogaloo.png", 1100, 590, 0.2, 0, 0, -5);
 
+
 	//Setup static Top Platform
 
 	//makeStaticObject(std::string filename, int width, int height, int x, int y, int z, int physx, int physy, float shrinkX, float shrinkY, EntityCategories type, float r, float g, float b, float opacity, int rotate);
@@ -171,7 +172,10 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 445, -250, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall thing
 	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);// HAMSTER TRIGGER to win 
-
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 0, -330, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//floor
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, -626, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//left
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 635, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 0, 350, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//roof
 
 	//hampster trigger
 	makeDestroyTrigger(10, 10, 30, -10, 2, 5, 0, 0, -30, -8, TRIGGER, PLAYER, 0, 0, 1, 0.3);
@@ -197,6 +201,15 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger(10, 10, 30, -10, 2, 70, 0, 0, -520, -145, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
 	makeDestroyTrigger(10, 10, 30, -10, 2, 58, 0, 0, -520, -145, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
 	
+
+
+
+	//dfkjgnskfjgnkjsfgnkdfe
+	makeImage("Back_Ground.png", 1300, 620, 1, 0, 0, -4);
+	makeImage("Picture_frame.png", 180, 120, 1, 500, 180, -3);
+
+
+
 	//CIRCLE
 	{
 		auto entity = ECS::CreateEntity();
