@@ -113,7 +113,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c) 14th created
 	makeStaticObject("wood.png", 30, 10, 30, -10, 2, 330, 10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//side jump platform 
 	makeStaticObject("wood.png", 190, 10, 30, -10, 2, 455, -5, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//ramp after c door 
-	makeStaticObject("wood.png", 40, 11, 30, -10, 2, 550, 48, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platfoom hold (p) button
+	makeStaticObject("wood.png", 80, 11, 30, -10, 2, 570, 48, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platfoom hold (p) button
 	makeStaticObject("wood.png", 35, 10, 30, -10, 2, 420, 35, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp jump thing flat 
 	makeStaticObject("wood.png", 160, 10, 30, -10, 2, 340, 80, 0, 0, GROUND, 0, 1, 0, 0.3, -35);//ramp the one angled yes that one
 	makeStaticObject("wood.png", 261, 10, 30, -10, 2, 147, 125, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platform on top 
@@ -343,7 +343,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
+		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
 		tempPhsBody = PhysicsBody(entity, BodyType::PENTAGON, tempBody, points, vec2(0.f, 0.f), false, PENTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -379,7 +379,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f)};
+		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f)};
 		tempPhsBody = PhysicsBody(entity, BodyType::HEXAGON, tempBody, points, vec2(0.f, 0.f), false, HEXAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -415,8 +415,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 	tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-	std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 4.f),  b2Vec2(0, tempSpr.GetHeight() / 2.f) };
-	tempPhsBody = PhysicsBody(entity, BodyType::SEPTAGON, tempBody, points, vec2(0.f, 0.f), false, HEPTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+	std::vector<b2Vec2> points = { b2Vec2(0, tempSpr.GetHeight()/2), b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight()/4.f), b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f),  b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f) };
+		tempPhsBody = PhysicsBody(entity, BodyType::SEPTAGON, tempBody, points, vec2(0.f, 0.f), false, HEPTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
 	tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 	
@@ -447,11 +447,11 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_dynamicBody;
-		tempDef.position.Set(float32(60.f), float32(-180.f));
+		tempDef.position.Set(float32(60.f), float32(-150.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 4.f),  b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f), b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f) };
+		std::vector<b2Vec2> points = { b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2), b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2), b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f), b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f),  b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f) };
 		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OCTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -684,6 +684,37 @@ void PhysicsPlayground::makeStaticObject(std::string filename, int width, int he
 
 	tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX),
 		float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, type, PLAYER | CIRCLE | TRIANGLE | SQUARE | PENTAGON | HEXAGON | HEPTAGON | OCTAGON);
+	tempPhsBody.SetColor(vec4(r, g, b, opacity));
+	tempPhsBody.SetRotationAngleDeg(rotate);
+}
+
+void PhysicsPlayground::makeStaticObjectTriangle(std::string filename, int width, int height, int x, int y, int z, int physx, int physy, float shrinkX, float shrinkY, EntityCategories type, float r, float g, float b, float opacity, int rotate)
+{
+	//Creates entity
+	auto entity = ECS::CreateEntity();
+
+	//Add components
+	ECS::AttachComponent<Sprite>(entity);
+	ECS::AttachComponent<Transform>(entity);
+	ECS::AttachComponent<PhysicsBody>(entity);
+
+	//Sets up components
+
+	ECS::GetComponent<Sprite>(entity).LoadSprite(filename, width, height);
+	ECS::GetComponent<Transform>(entity).SetPosition(vec3(x, y, z));
+
+	auto& tempSpr = ECS::GetComponent<Sprite>(entity);
+	auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
+
+	b2Body* tempBody;
+	b2BodyDef tempDef;
+	tempDef.type = b2_staticBody;
+	tempDef.position.Set(float32(physx), float32(physy));
+
+	tempBody = m_physicsWorld->CreateBody(&tempDef);
+
+	std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
+	tempPhsBody = PhysicsBody(entity, BodyType::TRIANGLE, tempBody, points, vec2(0.f, 0.f), false, type, PLAYER | CIRCLE | TRIANGLE | SQUARE | PENTAGON | HEXAGON | HEPTAGON | OCTAGON);
 	tempPhsBody.SetColor(vec4(r, g, b, opacity));
 	tempPhsBody.SetRotationAngleDeg(rotate);
 }
