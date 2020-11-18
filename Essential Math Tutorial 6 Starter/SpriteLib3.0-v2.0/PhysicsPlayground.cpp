@@ -201,7 +201,17 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger(10, 10, 30, -10, 2, 70, 0, 0, -520, -145, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
 	makeDestroyTrigger(10, 10, 30, -10, 2, 58, 0, 0, -520, -145, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
 	
+	//hampster prime trigger
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -320, -290, TRIGGER, PLAYER, 0, 0, 1, 0.3);
 
+	//all star triggers
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -200, -290, TRIGGER, CIRCLE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -150, -290, TRIGGER, TRIANGLE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -100, -290, TRIGGER, SQUARE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -50, -290, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 0, -290, TRIGGER, HEXAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 50, -290, TRIGGER, HEPTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 
 	//dfkjgnskfjgnkjsfgnkdfe
