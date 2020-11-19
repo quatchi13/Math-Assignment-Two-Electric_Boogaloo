@@ -15,7 +15,7 @@ PhysicsPlayground::PhysicsPlayground(std::string name)
 
 void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 {
-	//PlaySound(TEXT("music.wav"), NULL, SND_ASYNC);
+	
 
 	//Dynamically allocates the register
 	m_sceneReg = new entt::registry;
@@ -69,7 +69,6 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
 		ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(0.f, 30.f, 2.f));
-
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
 		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
 
@@ -168,7 +167,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 80, 10, 30, -10, 2, -285, -250, 0, 0, GROUND, 0, 1, 0, 0.3,90);//TRIGGER (h) door at bottom 
 	makeStaticObject("wood.png", 320, 10, 30, -10, 2, -450, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//TRIGGER (p) unleash the shaps #70
 	makeStaticObject("wood.png", 170, 10, 30, -10, 2, 480, -70, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
-	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN #72
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 445, -250, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall thing
 	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);// HAMSTER TRIGGER to win 
@@ -176,6 +175,12 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, -626, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//left
 	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 635, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right
 	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 0, 350, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//roof
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#80
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#81
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#82
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#83
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#84
+	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#85
 
 	//hampster trigger
 	makeDestroyTrigger(10, 10, 30, -10, 2, 5, 0, 0, -30, -8, TRIGGER, PLAYER, 0, 0, 1, 0.3);
@@ -205,13 +210,13 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -320, -290, TRIGGER, PLAYER, 0, 0, 1, 0.3);
 
 	//all star triggers
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -200, -290, TRIGGER, CIRCLE, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -150, -290, TRIGGER, TRIANGLE, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -100, -290, TRIGGER, SQUARE, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, -50, -290, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 0, -290, TRIGGER, HEXAGON, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 50, -290, TRIGGER, HEPTAGON, 0, 0, 1, 0.3);
-	makeDestroyTrigger(10, 10, 30, -10, 2, 69, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 72, 0, 0, -200, -290, TRIGGER, CIRCLE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 80, 0, 0, -150, -290, TRIGGER, TRIANGLE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 81, 0, 0, -100, -290, TRIGGER, SQUARE, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 82, 0, 0, -50, -290, TRIGGER, PENTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 83, 0, 0, 0, -290, TRIGGER, HEXAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 84, 0, 0, 50, -290, TRIGGER, HEPTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger(10, 10, 30, -10, 2, 85, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 
 	//dfkjgnskfjgnkjsfgnkdfe
@@ -247,9 +252,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempDef.type = b2_dynamicBody;
 		tempDef.position.Set(float32(24.f), float32(70.f));
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
-
 		//tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, PLAYER, ENEMY | OBJECTS | PICKUP | TRIGGER, 0.5f, 3.f);
-		tempPhsBody = PhysicsBody(entity, tempBody, float((tempSpr.GetWidth() - shrinkY) / 2.f), vec2(0.f, 0.f), false, CIRCLE, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.3f);
+		tempPhsBody = PhysicsBody(entity, tempBody, float((tempSpr.GetWidth() - shrinkY) / 2.f), vec2(0.f, 0.f), false, CIRCLE, GROUND | ENVIRONMENT | PLAYER | TRIGGER | TRIANGLE | SQUARE | PENTAGON | HEXAGON | HEPTAGON | OCTAGON, 0.3f);
 
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -284,7 +288,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 2.f), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
-		tempPhsBody = PhysicsBody(entity, BodyType::TRIANGLE, tempBody, points, vec2(0.f, 0.f), false, TRIANGLE, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+		tempPhsBody = PhysicsBody(entity, BodyType::TRIANGLE, tempBody, points, vec2(0.f, 0.f), false, TRIANGLE, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE  | SQUARE | PENTAGON | HEXAGON | HEPTAGON | OCTAGON, 0.5f, 3.5);
 
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -300,7 +304,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<PhysicsBody>(entity);
 
 		//Sets up the components
-		std::string fileName = "wood.png";
+		std::string fileName = "square.png";
 		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
 		ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(45.f, -8.f, 3.f));
@@ -318,7 +322,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
-		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, SQUARE, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.f);
+		tempPhsBody = PhysicsBody(entity, tempBody, float(tempSpr.GetWidth() - shrinkX), float(tempSpr.GetHeight() - shrinkY), vec2(0.f, 0.f), false, SQUARE, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE | TRIANGLE  | PENTAGON | HEXAGON | HEPTAGON | OCTAGON, 0.5f, 3.f);
 
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
@@ -354,7 +358,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(0, tempSpr.GetHeight() / 2.f) };
-		tempPhsBody = PhysicsBody(entity, BodyType::PENTAGON, tempBody, points, vec2(0.f, 0.f), false, PENTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+		tempPhsBody = PhysicsBody(entity, BodyType::PENTAGON, tempBody, points, vec2(0.f, 0.f), false, PENTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE | TRIANGLE | SQUARE | HEXAGON | HEPTAGON | OCTAGON, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 	
@@ -390,7 +394,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 		std::vector<b2Vec2> points = { b2Vec2(-tempSpr.GetWidth() / 2.f, 0), b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, 0), b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2.f)};
-		tempPhsBody = PhysicsBody(entity, BodyType::HEXAGON, tempBody, points, vec2(0.f, 0.f), false, HEXAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+		tempPhsBody = PhysicsBody(entity, BodyType::HEXAGON, tempBody, points, vec2(0.f, 0.f), false, HEXAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE | TRIANGLE | SQUARE | PENTAGON | HEPTAGON | OCTAGON, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 	
@@ -426,7 +430,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 	std::vector<b2Vec2> points = { b2Vec2(0, tempSpr.GetHeight()/2), b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight()/4.f), b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f),  b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f) };
-		tempPhsBody = PhysicsBody(entity, BodyType::SEPTAGON, tempBody, points, vec2(0.f, 0.f), false, HEPTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+		tempPhsBody = PhysicsBody(entity, BodyType::SEPTAGON, tempBody, points, vec2(0.f, 0.f), false, HEPTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE | TRIANGLE | SQUARE | PENTAGON | HEXAGON | OCTAGON, 0.5f, 3.5);
 	tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 	
@@ -462,7 +466,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
 		std::vector<b2Vec2> points = { b2Vec2(tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2), b2Vec2(-tempSpr.GetWidth() / 4.f, tempSpr.GetHeight() / 2), b2Vec2(-tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f), b2Vec2(-tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f),  b2Vec2(-tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f),  b2Vec2(tempSpr.GetWidth() / 4.f, -tempSpr.GetHeight() / 2.f), b2Vec2(tempSpr.GetWidth() / 2.f, -tempSpr.GetHeight() / 4.f), b2Vec2(tempSpr.GetWidth() / 2.f, tempSpr.GetHeight() / 4.f) };
-		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OCTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER, 0.5f, 3.5);
+		tempPhsBody = PhysicsBody(entity, BodyType::OCTAGON, tempBody, points, vec2(0.f, 0.f), false, OCTAGON, GROUND | ENVIRONMENT | PLAYER | TRIGGER | CIRCLE | TRIANGLE | SQUARE | PENTAGON | HEXAGON | HEPTAGON, 0.5f, 3.5);
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 
@@ -504,7 +508,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 	ECS::GetComponent<HorizontalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
 	ECS::GetComponent<VerticalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
-
+	PlaySound(TEXT("nubbys enjoyable evening.wav"), NULL, SND_ASYNC | SND_LOOP);
 	
 }
 
@@ -518,12 +522,19 @@ void PhysicsPlayground::KeyboardHold()
 {
 	auto& player = ECS::GetComponent<PhysicsBody>(MainEntities::MainPlayer());
 	auto& ball = ECS::GetComponent<PhysicsBody>(MainEntities::MainBall());
+	auto& ballSprite = ECS::GetComponent<Sprite>(MainEntities::MainBall());
 	auto& triangle = ECS::GetComponent<PhysicsBody>(MainEntities::MainTriangle());
+	auto& triangleSprite = ECS::GetComponent<Sprite>(MainEntities::MainTriangle());
 	auto& square = ECS::GetComponent<PhysicsBody>(MainEntities::MainSquare());
+	auto& squareSprite = ECS::GetComponent<Sprite>(MainEntities::MainSquare());
 	auto& pentagon = ECS::GetComponent<PhysicsBody>(MainEntities::MainPentagon());
+	auto& pentagonSprite = ECS::GetComponent<Sprite>(MainEntities::MainPentagon());
 	auto& hexagon = ECS::GetComponent<PhysicsBody>(MainEntities::MainHexagon());
+	auto& hexagonSprite = ECS::GetComponent<Sprite>(MainEntities::MainHexagon());
 	auto& heptagon = ECS::GetComponent<PhysicsBody>(MainEntities::MainHeptagon());
+	auto& heptagonSprite = ECS::GetComponent<Sprite>(MainEntities::MainHeptagon());
 	auto& octagon = ECS::GetComponent<PhysicsBody>(MainEntities::MainOctagon());
+	auto& octagonSprite = ECS::GetComponent<Sprite>(MainEntities::MainOctagon());
 
 
 	float speed = 1.f;
@@ -544,76 +555,95 @@ void PhysicsPlayground::KeyboardHold()
 	}
 
 	//Change physics body size for circle
-	if (Input::GetKey(Key::O))
-	{
-		player.ScaleBody(1.3 * Timer::deltaTime, 0);
-	}
-	else if (Input::GetKey(Key::I))
-	{
-		player.ScaleBody(-1.3 * Timer::deltaTime, 0);
-	}
-	
 	if (Input::GetKey(Key::NumPad0) && Input::GetKey(Key::Add))
 	{
 		ball.ScaleBody(0.01, 0);
+		ballSprite.SetHeight(ball.GetHeight());
+		ballSprite.SetWidth(ball.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad0) && Input::GetKey(Key::Subtract))
 	{
 		ball.ScaleBody(-0.01, 0);
+		ballSprite.SetHeight(ball.GetHeight());
+		ballSprite.SetWidth(ball.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad3) && Input::GetKey(Key::Add))
 	{
 		triangle.ScaleBody(0.02, 0);
+		triangleSprite.SetHeight(triangle.GetHeight());
+		triangleSprite.SetWidth(triangle.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad3) && Input::GetKey(Key::Subtract))
 	{
 		triangle.ScaleBody(-0.02, 0);
+		triangleSprite.SetHeight(triangle.GetHeight());
+		triangleSprite.SetWidth(triangle.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad4) && Input::GetKey(Key::Add))
 	{
 		square.ScaleBody(0.02, 0);
+		squareSprite.SetHeight(square.GetHeight());
+		squareSprite.SetWidth(square.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad4) && Input::GetKey(Key::Subtract))
 	{
 		square.ScaleBody(-0.02, 0);
+		squareSprite.SetHeight(square.GetHeight());
+		squareSprite.SetWidth(square.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad5) && Input::GetKey(Key::Add))
 	{
 		pentagon.ScaleBody(0.02, 0);
+		pentagonSprite.SetHeight(pentagon.GetHeight());
+		pentagonSprite.SetWidth(pentagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad5) && Input::GetKey(Key::Subtract))
 	{
 		pentagon.ScaleBody(-0.02, 0);
+		pentagonSprite.SetHeight(pentagon.GetHeight());
+		pentagonSprite.SetWidth(pentagon.GetWidth());
 	}
 	
 	if (Input::GetKey(Key::NumPad6) && Input::GetKey(Key::Add))
 	{
 		hexagon.ScaleBody(0.02, 0);
+		hexagonSprite.SetHeight(hexagon.GetHeight());
+		hexagonSprite.SetWidth(hexagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad6) && Input::GetKey(Key::Subtract))
 	{
 		hexagon.ScaleBody(-0.02, 0);
+		hexagonSprite.SetHeight(hexagon.GetHeight());
+		hexagonSprite.SetWidth(hexagon.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad7) && Input::GetKey(Key::Add))
 	{
 		heptagon.ScaleBody(0.02, 0);
+		heptagonSprite.SetHeight(heptagon.GetHeight());
+		heptagonSprite.SetWidth(heptagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad7) && Input::GetKey(Key::Subtract))
 	{
 		heptagon.ScaleBody(-0.02, 0);
+		heptagonSprite.SetHeight(heptagon.GetHeight());
+		heptagonSprite.SetWidth(heptagon.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad8) && Input::GetKey(Key::Add))
 	{
 		octagon.ScaleBody(0.02, 0);
+		octagonSprite.SetHeight(octagon.GetHeight());
+		octagonSprite.SetWidth(octagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad8) && Input::GetKey(Key::Subtract))
 	{
 		octagon.ScaleBody(-0.02, 0);
+		octagonSprite.SetHeight(octagon.GetHeight());
+		octagonSprite.SetWidth(octagon.GetWidth());
 	}
 }
 
