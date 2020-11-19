@@ -182,6 +182,21 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#84
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#85
 
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 1    GOES LEFT TO RIGHT
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 3
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 4
+
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -520, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 1
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -440, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -360, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 3
+
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 1
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 3
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 4
+	
+	
 	//hampster trigger
 	makeDestroyTrigger(10, 10, 30, -10, 2, 5, 0, 0, -30, -8, TRIGGER, PLAYER, 0, 0, 1, 0.3);
 
@@ -219,10 +234,11 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger(10, 10, 30, -10, 2, 85, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 
-	//dfkjgnskfjgnkjsfgnkdfe
+	//dfkjgnskfjgnkjsfgnkdfefdgasdgjfadsfadfa
 	makeImage("Back_Ground.png", 1300, 620, 1, 0, 0, -4);
-	makeImage("Picture_frame.png", 180, 120, 1, 500, 180, -3);
-
+	makeImage("Picture_frame.png", 180, 120, 1, 500, 170, -3);
+	makeImage("Book_Shelf.png", 100, 80, 1, -385, 218, -3);
+	makeImage("Sloom.png", 160, 100, 1, 395, -255, 4);
 
 
 	//CIRCLE
