@@ -53,7 +53,6 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	//nubby
 	{
 		/*Scene::CreatePhysicsSprite(m_sceneReg, "LinkStandby", 80, 60, 1.f, vec3(0.f, 30.f, 2.f), b2_dynamicBody, 0.f, 0.f, true, true)*/
-
 		auto entity = ECS::CreateEntity();
 		ECS::SetIsMainPlayer(entity, true);
 
@@ -61,14 +60,16 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<Sprite>(entity);
 		ECS::AttachComponent<Transform>(entity);
 		ECS::AttachComponent<PhysicsBody>(entity);
+		ECS::AttachComponent<AnimationController>(entity);
 		ECS::AttachComponent<Player>(entity);
 		
-
 		//Sets up the components
-		std::string fileName = "Hamster place holder.png";
-		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
-		ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
+		std::string fileName = "spritesheets/Hamster_Sprite.png";
+		std::string animations = "Hamster.json";
+		//ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
+		//ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
 		ECS::GetComponent<Transform>(entity).SetPosition(vec3(0.f, 30.f, 2.f));
+		ECS::GetComponent<Player>(entity).InitPlayer(fileName, animations, 20, 20, &ECS::GetComponent<Sprite>(entity), &ECS::GetComponent<AnimationController>(entity), &ECS::GetComponent<Transform>(entity));
 		auto& tempSpr = ECS::GetComponent<Sprite>(entity);
 		auto& tempPhsBody = ECS::GetComponent<PhysicsBody>(entity);
 
@@ -94,7 +95,6 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 	makeImage("Boogaloo.png", 1100, 590, 0.2, 0, 0, -5);
 
-
 	//Setup static Top Platform
 
 	//makeStaticObject(std::string filename, int width, int height, int x, int y, int z, int physx, int physy, float shrinkX, float shrinkY, EntityCategories type, float r, float g, float b, float opacity, int rotate);
@@ -108,13 +108,13 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 73, 10, 30, -10, 2, 240, 12, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right cubby wall
 	makeStaticObject("wood.png", 70, 10, 30, -10, 2, 210, -20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//cubby door (triggers) trinagle 
 	makeStaticObject("wood.png", 440, 10, 30, -10, 2, 160, -60, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//beeg lower platfoom 
-	makeStaticObject("wood.png", 98, 10, 30, -10, 2, 340, 30, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
+	makeStaticObject("wood.png", 85, 10, 30, -10, 2, 340, 20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
 	makeStaticObject("wood.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c) 14th created
 	makeStaticObject("wood.png", 30, 10, 30, -10, 2, 330, 10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//side jump platform 
 	makeStaticObject("wood.png", 190, 10, 30, -10, 2, 455, -5, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//ramp after c door 
 	makeStaticObject("wood.png", 80, 11, 30, -10, 2, 570, 48, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platfoom hold (p) button
-	makeStaticObject("wood.png", 35, 10, 30, -10, 2, 420, 35, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp jump thing flat 
-	makeStaticObject("wood.png", 160, 10, 30, -10, 2, 340, 80, 0, 0, GROUND, 0, 1, 0, 0.3, -35);//ramp the one angled yes that one
+	makeStaticObject("wood.png", 35, 10, 30, -10, 2, 400, 15, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//ramp jump thing flat 
+	makeStaticObject("wood.png", 160, 10, 30, -10, 2, 330, 70, 0, 0, GROUND, 0, 1, 0, 0.3, -45);//ramp the one angled yes that one
 	makeStaticObject("wood.png", 261, 10, 30, -10, 2, 147, 125, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//platform on top 
 	makeStaticObject("wood.png", 202, 10, 30, -10, 2, -65, 175, 0, 0, GROUND, 0, 1, 0, 0.3, -30);//the other ramp to the left ish on top
 	makeStaticObject("wood.png", 100, 10, 30, -10, 2, -200, 225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat top left between ramps
@@ -181,6 +181,9 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#83
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#84
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#85
+	makeStaticObject("wood.png", 20, 10, 30, -10, 2, -438, 300, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//platfoom that hamster can fit only 
+	makeStaticObject("wood.png", 100, 10, 30, -10, 2, 560, 280, 0, 0, GROUND, 0, 1, 0, 0.3, -45);//Angled puzzles top right
+	makeStaticObject("wood.png", 120, 50, 30, -10, 2, 590, 280, 0, 0, GROUND, 0, 1, 0, 0.3, -45);//^^^ that part 2 
 
 	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 1    GOES LEFT TO RIGHT
 	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 2
@@ -235,10 +238,10 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 
 	//dfkjgnskfjgnkjsfgnkdfefdgasdgjfadsfadfa
-	makeImage("Back_Ground.png", 1300, 620, 1, 0, 0, -4);
+	makeImage("Back Ground.png", 1300, 620, 1, 0, 0, -4);
 	makeImage("Picture_frame.png", 180, 120, 1, 500, 170, -3);
 	makeImage("Book_Shelf.png", 100, 80, 1, -385, 218, -3);
-	makeImage("Sloom.png", 160, 100, 1, 395, -255, 4);
+	makeImage("Sloom.png", 120, 100, 1, 385, -255, 4);
 
 
 	//CIRCLE

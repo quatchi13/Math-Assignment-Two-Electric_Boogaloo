@@ -50,9 +50,9 @@ void Player::InitPlayer(std::string& fileName, std::string& animationJSON, int w
 	//Walk Animations\\
 
 	//WalkLeft
-	m_animController->AddAnimation(animations["WalkLeft"].get<Animation>());
+	m_animController->AddAnimation(animations["MoveLeft"].get<Animation>());
 	//WalkRight
-	m_animController->AddAnimation(animations["WalkRight"].get<Animation>());
+	m_animController->AddAnimation(animations["MoveRight"].get<Animation>());
 #ifdef TOPDOWN
 	//WalkUP
 	m_animController->AddAnimation(animations["WalkUp"].get<Animation>());
@@ -63,9 +63,9 @@ void Player::InitPlayer(std::string& fileName, std::string& animationJSON, int w
 	//Attack Animations\\
 
 	//AttackLeft
-	m_animController->AddAnimation(animations["AttackLeft"].get<Animation>());
+	m_animController->AddAnimation(animations["MoveLeft"].get<Animation>());
 	//AttackRight
-	m_animController->AddAnimation(animations["AttackRight"].get<Animation>());
+	m_animController->AddAnimation(animations["MoveRight"].get<Animation>());
 #ifdef TOPDOWN
 	//AttackUp
 	m_animController->AddAnimation(animations["AttackUp"].get<Animation>());
