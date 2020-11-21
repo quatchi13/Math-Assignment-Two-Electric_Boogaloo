@@ -237,7 +237,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger(10, 10, 30, -10, 2, 85, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 
-	//dfkjgnskfjgnkjsfgnkdfefdgasdgjfadsfadfa
+	//dfkjgnskfjgnkjsfgnkdfefdgasdgjfadsfadfasfgzdfhbhxdfxdggbxdf
 	makeImage("Back Ground.png", 1300, 620, 1, 0, 0, -4);
 	makeImage("Picture_frame.png", 180, 120, 1, 500, 170, -3);
 	makeImage("Book_Shelf.png", 100, 80, 1, -385, 218, -3);
