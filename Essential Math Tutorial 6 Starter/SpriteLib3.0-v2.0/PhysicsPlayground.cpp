@@ -1,7 +1,7 @@
 #include "PhysicsPlayground.h"
 #include "Utilities.h"
+#include "Player.h"
 #include <random>
-
 
 PhysicsPlayground::PhysicsPlayground(std::string name)
 	: Scene(name)
@@ -64,7 +64,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		ECS::AttachComponent<Player>(entity);
 		
 		//Sets up the components
-		std::string fileName = "spritesheets/Hamster_Sprite.png";
+		std::string fileName = "spritesheets/Hamster_Sprite1.png";
 		std::string animations = "Hamster.json";
 		//ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 20, 20);
 		//ECS::GetComponent<Sprite>(entity).SetTransparency(1.f);
@@ -555,6 +555,8 @@ void PhysicsPlayground::Update()
 	{
 		winImage.SetTransparency(1);
 	}
+	auto& Hamster = ECS::GetComponent<Player>(MainEntities::MainPlayer());
+	Hamster.Update();
 }
 
 

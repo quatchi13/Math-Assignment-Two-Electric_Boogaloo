@@ -63,9 +63,9 @@ void Player::InitPlayer(std::string& fileName, std::string& animationJSON, int w
 	//Attack Animations\\
 
 	//AttackLeft
-	m_animController->AddAnimation(animations["MoveLeft"].get<Animation>());
+	m_animController->AddAnimation(animations["YumpLeft"].get<Animation>());
 	//AttackRight
-	m_animController->AddAnimation(animations["MoveRight"].get<Animation>());
+	m_animController->AddAnimation(animations["YumpRight"].get<Animation>());
 #ifdef TOPDOWN
 	//AttackUp
 	m_animController->AddAnimation(animations["AttackUp"].get<Animation>());
