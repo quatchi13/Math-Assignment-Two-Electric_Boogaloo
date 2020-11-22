@@ -135,7 +135,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 120, 11, 30, -10, 2, -219, -1, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//flat and floor of too cubbys
 	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -274, 30, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//pentagon cubby left wall 
 	makeStaticObject("Red.png", 60, 10, 30, -10, 2, -205, 30, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right wall (trigger) #39
-	makeStaticObject("wood.png", 70, 10, 30, -10, 2, -244, 55, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof / floor
+	makeStaticObject("wood.png", 78, 10, 30, -10, 2, -239, 55, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof / floor
 	makeStaticObject("Green.png", 60, 10, 30, -10, 2, -274, 90, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//Square cubby left wall (trigger #41
 	makeStaticObject("wood.png", 60, 10, 30, -10, 2, -205, 90, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//cubby right wall
 	makeStaticObject("wood.png", 70, 10, 30, -10, 2, -244, 115, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//cubby roof
@@ -166,7 +166,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 101, 10, 30, -10, 2, -285, -195, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right wall donky donk thing
 	makeStaticObject("Hamster_square.png", 80, 10, 30, -10, 2, -285, -250, 0, 0, GROUND, 0, 1, 0, 0.3,90);//TRIGGER (h) door at bottom 
 	makeStaticObject("Green.png", 320, 10, 30, -10, 2, -450, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//TRIGGER (p) unleash the shaps #70
-	makeStaticObject("Purple.png", 190, 10, 30, -10, 2, 540, -50, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
+	makeStaticObject("Purple.png", 200, 10, 30, -10, 2, 535, -50, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
 	makeStaticObject("Red.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN #72
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 445, -250, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall thing
 	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
