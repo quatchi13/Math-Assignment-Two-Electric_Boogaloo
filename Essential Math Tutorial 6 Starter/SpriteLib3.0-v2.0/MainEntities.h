@@ -7,6 +7,8 @@ public:
 	//Getters
 	static int MainCamera();
 	static int MainPlayer();
+	static int WinImage();
+	static int StartImage();
 	static int MainBall();
 	static int MainTriangle();
 	static int MainSquare();
@@ -17,6 +19,8 @@ public:
 	//Setters
 	static void MainCamera(int main);
 	static void MainPlayer(int main);
+	static void WinImage(int main);
+	static void StartImage(int main);
 	static void MainBall(int main);
 	static void MainTriangle(int main);
 	static void MainSquare(int main);
@@ -28,6 +32,8 @@ public:
 private:
 	static int m_mainCamera;
 	static int m_mainPlayer;
+	static int m_winimage;
+	static int m_startimage;
 	static int m_mainBall;
 	static int m_mainTriangle;
 	static int m_mainSquare;

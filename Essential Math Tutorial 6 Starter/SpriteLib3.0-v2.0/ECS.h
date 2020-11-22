@@ -51,6 +51,8 @@ public:
 	//Side stuff for entity identifier
 	static void SetIsMainCamera(unsigned entity, bool mainCamera);
 	static void SetIsMainPlayer(unsigned entity, bool mainPlayer);
+	static void SetIsWinImage(unsigned entity, bool winImage);
+	static void SetIsStartImage(unsigned entity, bool startImage);
 	static void SetIsMainBall(unsigned entity, bool mainBall);
 	static void SetIsMainTriangle(unsigned entity, bool mainBall);
 	static void SetIsMainSquare(unsigned entity, bool mainBall);

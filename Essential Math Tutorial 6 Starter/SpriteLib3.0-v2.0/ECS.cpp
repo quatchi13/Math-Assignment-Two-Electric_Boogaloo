@@ -48,6 +48,22 @@ void ECS::SetIsMainPlayer(unsigned entity, bool mainPlayer)
 	}
 }
 
+void ECS::SetIsWinImage(unsigned entity, bool winImage)
+{
+	if (winImage)
+	{
+		MainEntities::WinImage(entity);
+	}
+}
+
+void ECS::SetIsStartImage(unsigned entity, bool startImage)
+{
+	if (startImage)
+	{
+		MainEntities::StartImage(entity);
+	}
+}
+
 void ECS::SetIsMainBall(unsigned entity, bool mainBall)
 {
 	if (mainBall)

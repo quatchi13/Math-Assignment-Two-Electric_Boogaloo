@@ -79,7 +79,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		b2Body* tempBody;
 		b2BodyDef tempDef;
 		tempDef.type = b2_dynamicBody;
-		tempDef.position.Set(float32(0.f), float32(30.f));
+		tempDef.position.Set(float32(0.f), float32(10.f));
 
 		tempBody = m_physicsWorld->CreateBody(&tempDef);
 
@@ -172,8 +172,8 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
 	makeStaticObject("Hamster_square.png", 200, 10, 30, -10, 2, 540, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 0);// HAMSTER TRIGGER to win 
 	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 0, -330, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//floor
-	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, -626, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//left
-	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 635, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 12, -626, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//left
+	makeStaticObject("wood.png", 1500, 80, 30, -10, 12, 635, 0, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right
 	makeStaticObject("wood.png", 1500, 80, 30, -10, 3, 0, 350, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//roof
 	makeStaticObject("Orange.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#80
 	makeStaticObject("Yellow.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#81
@@ -247,13 +247,14 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger("Purple_Button.png", 10, 10, 30, -10, 2, 85, 0, 0, 100, -290, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 	//hapster star
-	makeDestroyTrigger("Hamster_Button.png", 10, 10, 30, -10, 2, 85, 0, 0, 525, -220, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger("Hamster_Button.png", 10, 10, 30, -10, 2, 75, 0, 0, 525, -220, TRIGGER, PLAYER, 0, 0, 1, 0.3);
 
 	//dfkjgnskfjgnkjsfgnkdfefdgasdgjfadsfadfasfgzdfhbhxdfxdggbxdf
 	makeImage("Back Ground.png", 1300, 620, 1, 0, 0, -4);
 	makeImage("Picture_frame.png", 180, 120, 1, 500, 170, -3);
 	makeImage("Book_Shelf.png", 100, 80, 1, -385, 218, -3);
 	makeImage("Sloom.png", 120, 100, 1, 385, -255, 4);
+	makeImage("Food.png", 90, 60, 1, 520, -270, 5);
 	
 
 
@@ -502,6 +503,44 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 		tempPhsBody.SetColor(vec4(1.f, 0.f, 1.f, 0.3f));
 	}
 
+	//Win Image
+	{
+		/*Scene::CreateSprite(m_sceneReg, "HelloWorld.png", 100, 60, 0.5f, vec3(0.f, 0.f, 0.f));*/
+
+			//Creates entity
+		auto entity = ECS::CreateEntity();
+		ECS::SetIsWinImage(entity, true);
+
+		//Add components
+		ECS::AttachComponent<Sprite>(entity);
+		ECS::AttachComponent<Transform>(entity);
+
+		//Set up the components
+		std::string fileName = "Win.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 1300, 620);
+		ECS::GetComponent<Sprite>(entity).SetTransparency(0);
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(0, 0, 10));
+	}
+
+	//Start Image
+	{
+		/*Scene::CreateSprite(m_sceneReg, "HelloWorld.png", 100, 60, 0.5f, vec3(0.f, 0.f, 0.f));*/
+
+			//Creates entity
+		auto entity = ECS::CreateEntity();
+		ECS::SetIsStartImage(entity, true);
+
+		//Add components
+		ECS::AttachComponent<Sprite>(entity);
+		ECS::AttachComponent<Transform>(entity);
+
+		//Set up the components
+		std::string fileName = "Start.png";
+		ECS::GetComponent<Sprite>(entity).LoadSprite(fileName, 1300, 620);
+		ECS::GetComponent<Sprite>(entity).SetTransparency(1);
+		ECS::GetComponent<Transform>(entity).SetPosition(vec3(0, 0, 20));
+	}
+
 	ECS::GetComponent<HorizontalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
 	ECS::GetComponent<VerticalScroll>(MainEntities::MainCamera()).SetFocus(&ECS::GetComponent<Transform>(MainEntities::MainPlayer()));
 	PlaySound(TEXT("nubbys enjoyable evening.wav"), NULL, SND_ASYNC | SND_LOOP);
@@ -510,7 +549,12 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 
 void PhysicsPlayground::Update()
 {
-	
+	auto& player = ECS::GetComponent<PhysicsBody>(MainEntities::MainPlayer());
+	auto& winImage = ECS::GetComponent<Sprite>(MainEntities::WinImage());
+	if (player.GetPosition().x > 475 && player.GetPosition().x < 565 && player.GetPosition().y > -300 && player.GetPosition().y < -240)
+	{
+		winImage.SetTransparency(1);
+	}
 }
 
 
@@ -648,6 +692,9 @@ void PhysicsPlayground::KeyboardDown()
 	auto& player = ECS::GetComponent<PhysicsBody>(MainEntities::MainPlayer());
 	auto& canJump = ECS::GetComponent<Player>(MainEntities::MainPlayer());
 
+	auto& startImage = ECS::GetComponent<Sprite>(MainEntities::StartImage());
+
+
 	if (Input::GetKeyDown(Key::Q))
 	{
 		
@@ -667,6 +714,14 @@ void PhysicsPlayground::KeyboardDown()
 		}
 	}
 	
+	
+
+	if (Input::GetKeyDown(Key::Enter))
+	{
+		startImage.SetTransparency(0);
+	}
+
+
 }
 
 void PhysicsPlayground::KeyboardUp()

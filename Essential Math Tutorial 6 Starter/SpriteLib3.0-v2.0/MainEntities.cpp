@@ -2,6 +2,8 @@
 
 int MainEntities::m_mainCamera = 0;
 int MainEntities::m_mainPlayer = 0;
+int MainEntities::m_winimage = 0;
+int MainEntities::m_startimage = 0;
 int MainEntities::m_mainBall = 0;
 int MainEntities::m_mainTriangle = 0;
 int MainEntities::m_mainSquare = 0;
@@ -18,6 +20,16 @@ int MainEntities::MainCamera()
 int MainEntities::MainPlayer()
 {
 	return m_mainPlayer;
+}
+
+int MainEntities::WinImage()
+{
+	return m_winimage;
+}
+
+int MainEntities::StartImage()
+{
+	return m_startimage;
 }
 
 int MainEntities::MainBall()
@@ -63,6 +75,16 @@ void MainEntities::MainCamera(int main)
 void MainEntities::MainPlayer(int main)
 {
 	m_mainPlayer = main;
+}
+
+void MainEntities::WinImage(int main)
+{
+	m_winimage = main;
+}
+
+void MainEntities::StartImage(int main)
+{
+	m_startimage = main;
 }
 
 void MainEntities::MainBall(int main)
