@@ -108,7 +108,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 73, 10, 30, -10, 2, 240, 12, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//right cubby wall
 	makeStaticObject("Blue.png", 70, 10, 30, -10, 2, 210, -20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//cubby door (triggers) trinagle 
 	makeStaticObject("wood.png", 440, 10, 30, -10, 2, 160, -60, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//beeg lower platfoom 
-	makeStaticObject("wood.png", 85, 10, 30, -10, 2, 340, 20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
+	makeStaticObject("wood.png", 82, 10, 30, -10, 2, 340, 20, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//wall to the right with jump plat foom on it
 	makeStaticObject("Red.png", 42, 10, 30, -10, 2, 340, -40, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 90);//door thats triggers(c) 14th created
 	makeStaticObject("wood.png", 30, 10, 30, -10, 2, 330, 10, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//side jump platform 
 	makeStaticObject("wood.png", 190, 10, 30, -10, 2, 455, -5, 0, 0, GROUND, 0, 1, 0, 0.3, 35);//ramp after c door 
@@ -232,10 +232,10 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeDestroyTrigger("Orange_Button.png", 10, 10, 30, -10, 2, 64, 0, 0, 580, 246, TRIGGER, TRIANGLE, 0, 0, 1, 0.3);
 
 	//hexagon trigger
-	makeDestroyTrigger("Blue.png", 70, 10, 30, -10, 2, 11, 0, 0, -360, -245, TRIGGER, HEXAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger("Blue Light.png", 70, 10, 30, -10, 2, 11, 0, 0, -360, -245, TRIGGER, HEXAGON, 0, 0, 1, 0.3);
 
 	//octagon trigger
-	makeDestroyTrigger("Purple.png", 70, 10, 30, -10, 2, 71, 0, 0, -440, -245, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
+	makeDestroyTrigger("Purple Light.png", 70, 10, 30, -10, 2, 71, 0, 0, -440, -245, TRIGGER, OCTAGON, 0, 0, 1, 0.3);
 
 	//all star triggers
 	makeDestroyTrigger("Red_Button.png", 10, 10, 30, -10, 2, 72, 0, 0, -200, -290, TRIGGER, CIRCLE, 0, 0, 1, 0.3);
