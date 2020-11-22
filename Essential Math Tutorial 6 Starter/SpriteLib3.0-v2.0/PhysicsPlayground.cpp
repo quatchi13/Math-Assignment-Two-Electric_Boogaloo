@@ -166,7 +166,7 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 101, 10, 30, -10, 2, -285, -195, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//right wall donky donk thing
 	makeStaticObject("Hamster_square.png", 80, 10, 30, -10, 2, -285, -250, 0, 0, GROUND, 0, 1, 0, 0.3,90);//TRIGGER (h) door at bottom 
 	makeStaticObject("Green.png", 320, 10, 30, -10, 2, -450, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//TRIGGER (p) unleash the shaps #70
-	makeStaticObject("Purple.png", 170, 10, 30, -10, 2, 480, -70, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
+	makeStaticObject("Purple.png", 190, 10, 30, -10, 2, 540, -50, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//(8) wall TRIGGER thingnskdfg
 	makeStaticObject("Red.png", 200, 10, 30, -10, 2, 540, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN #72
 	makeStaticObject("wood.png", 200, 10, 30, -10, 2, 445, -250, 0, 0, GROUND, 0, 1, 0, 0.3, 90);//wall thing
 	makeStaticObject("wood.png", 300, 10, 30, -10, 2, 313, -225, 0, 0, GROUND, 0, 1, 0, 0.3, 30);//long ramp derp bottom right
@@ -186,19 +186,19 @@ void PhysicsPlayground::InitScene(float windowWidth, float windowHeight)
 	makeStaticObject("wood.png", 120, 50, 30, -10, 2, 590, 280, 0, 0, GROUND, 0, 1, 0, 0.3, -45);//^^^ that part 2 
 	makeStaticObject("wood.png", 100, 10, 30, -10, 3, 490, -150, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//wINNer thing on top SHAPES TRIGGER TO WIN#85
 
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 1    GOES LEFT TO RIGHT
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 2
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 3
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -185, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 1, 4
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -185, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 1, 1    GOES LEFT TO RIGHT
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -185, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 1, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -185, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 1, 3
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -185, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 1, 4
 
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -520, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 1
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -440, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 2
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -360, -215, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 2, 3
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -520, -215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 2, 1
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -440, -215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 2, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -360, -215, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 2, 3
 
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 1
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 2
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 3
-	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -240, 0, 0, GROUND, 0, 1, 0, 0.3, 0);//row 3, 4
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -560, -240, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 3, 1
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -480, -240, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 3, 2
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -400, -240, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 3, 3
+	makeStaticObjectTriangle("woodT.png", 20, 20, 30, -10, 5, -320, -240, 0, 0, ENVIRONMENT, 0, 1, 0, 0.3, 0);//row 3, 4
 	
 	
 	//hampster trigger
@@ -612,78 +612,78 @@ void PhysicsPlayground::KeyboardHold()
 
 	if (Input::GetKey(Key::NumPad3) && Input::GetKey(Key::Add))
 	{
-		triangle.ScaleBody(0.02, 0);
+		triangle.ScaleBody(0.06, 0);
 		triangleSprite.SetHeight(triangle.GetHeight());
 		triangleSprite.SetWidth(triangle.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad3) && Input::GetKey(Key::Subtract))
 	{
-		triangle.ScaleBody(-0.02, 0);
+		triangle.ScaleBody(-0.06, 0);
 		triangleSprite.SetHeight(triangle.GetHeight());
 		triangleSprite.SetWidth(triangle.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad4) && Input::GetKey(Key::Add))
 	{
-		square.ScaleBody(0.02, 0);
+		square.ScaleBody(0.06, 0);
 		squareSprite.SetHeight(square.GetHeight());
 		squareSprite.SetWidth(square.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad4) && Input::GetKey(Key::Subtract))
 	{
-		square.ScaleBody(-0.02, 0);
+		square.ScaleBody(-0.06, 0);
 		squareSprite.SetHeight(square.GetHeight());
 		squareSprite.SetWidth(square.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad5) && Input::GetKey(Key::Add))
 	{
-		pentagon.ScaleBody(0.02, 0);
+		pentagon.ScaleBody(0.06, 0);
 		pentagonSprite.SetHeight(pentagon.GetHeight());
 		pentagonSprite.SetWidth(pentagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad5) && Input::GetKey(Key::Subtract))
 	{
-		pentagon.ScaleBody(-0.02, 0);
+		pentagon.ScaleBody(-0.06, 0);
 		pentagonSprite.SetHeight(pentagon.GetHeight());
 		pentagonSprite.SetWidth(pentagon.GetWidth());
 	}
 	
 	if (Input::GetKey(Key::NumPad6) && Input::GetKey(Key::Add))
 	{
-		hexagon.ScaleBody(0.02, 0);
+		hexagon.ScaleBody(0.06, 0);
 		hexagonSprite.SetHeight(hexagon.GetHeight());
 		hexagonSprite.SetWidth(hexagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad6) && Input::GetKey(Key::Subtract))
 	{
-		hexagon.ScaleBody(-0.02, 0);
+		hexagon.ScaleBody(-0.06, 0);
 		hexagonSprite.SetHeight(hexagon.GetHeight());
 		hexagonSprite.SetWidth(hexagon.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad7) && Input::GetKey(Key::Add))
 	{
-		heptagon.ScaleBody(0.02, 0);
+		heptagon.ScaleBody(0.06, 0);
 		heptagonSprite.SetHeight(heptagon.GetHeight());
 		heptagonSprite.SetWidth(heptagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad7) && Input::GetKey(Key::Subtract))
 	{
-		heptagon.ScaleBody(-0.02, 0);
+		heptagon.ScaleBody(-0.06, 0);
 		heptagonSprite.SetHeight(heptagon.GetHeight());
 		heptagonSprite.SetWidth(heptagon.GetWidth());
 	}
 
 	if (Input::GetKey(Key::NumPad8) && Input::GetKey(Key::Add))
 	{
-		octagon.ScaleBody(0.02, 0);
+		octagon.ScaleBody(0.06, 0);
 		octagonSprite.SetHeight(octagon.GetHeight());
 		octagonSprite.SetWidth(octagon.GetWidth());
 	}
 	else if (Input::GetKey(Key::NumPad8) && Input::GetKey(Key::Subtract))
 	{
-		octagon.ScaleBody(-0.02, 0);
+		octagon.ScaleBody(-0.06, 0);
 		octagonSprite.SetHeight(octagon.GetHeight());
 		octagonSprite.SetWidth(octagon.GetWidth());
 	}
